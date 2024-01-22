@@ -1,9 +1,13 @@
 //your JS code here. If required.
 let audio;
 
-function playAudio(filename) {
-  stopAudio(); // Stop any currently playing audio before starting a new one
-  audio = new Audio(`sounds/${filename}`);
+function playAudio(soundFileName) {
+  if (audio) {
+    audio.pause();
+    audio.currentTime = 0;
+  }
+
+  audio = new Audio(`sounds/${soundFileName}`);
   audio.play();
 }
 
